@@ -34,4 +34,13 @@ public class Acronym {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public Acronym searchByLetters(String acronymLetters) {
+        return null;
+    }
+
+    @Override
+    public String toString() {
+        return acronymLetters + ":\n\n" + acronymStandsFor + "\n\n-" + description;
+    }
 }

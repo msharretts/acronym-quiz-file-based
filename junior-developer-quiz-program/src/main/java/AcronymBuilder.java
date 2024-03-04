@@ -15,10 +15,10 @@ public class AcronymBuilder {
     public AcronymBuilder() {
 
         // Create new file using location of acronym data
-        File acronymDataFolder = new File("\\resources\\acronyms.txt");
+        File acronymFile = new File("junior-developer-quiz-program/resources/acronyms.txt");
 
         // Read through each line of the file
-        try (Scanner fileReader = new Scanner(acronymDataFolder)) {
+        try (Scanner fileReader = new Scanner(acronymFile)) {
             fileReader.nextLine();
             while (fileReader.hasNextLine()) {
                 String line = fileReader.nextLine();
@@ -29,6 +29,8 @@ public class AcronymBuilder {
                 acronymStandsFor = lineParts[1];
                 description = lineParts[2];
 
+                Acronym acronymToAdd = new Acronym(acronymLetters, acronymStandsFor, description);
+                acronymList.add(acronymToAdd);
             }
 
         } catch (FileNotFoundException e) {

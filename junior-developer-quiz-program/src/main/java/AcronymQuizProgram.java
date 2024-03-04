@@ -1,5 +1,9 @@
 package main.java;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,109 +27,74 @@ public class AcronymQuizProgram {
     }
 
     public void mainMenuMethod() {
-        // Print the main menu
-        userInterface.printIntroMenu();
+        int menuSelection = -1;
 
-        // Prompt a selection from the user
-        int selection = userInterface.mainMenuSelection();
+        while (menuSelection != 0) {
+            // Print the main menu and prompt selection
+            userInterface.printIntroMenu();
+            int selection = userInterface.mainMenuSelection();
 
-        // Use the parsed user input to select the appropriate method for each menu option
-        if (selection == 5) {
+            // Use the parsed user input to select the appropriate method for each menu option
+            if (selection == 1) {
+                displayAcronymsAndPromptSelection();
+            } else if (selection == 2) {
+                addAcronymToList();
+            } else if (selection == 3) {
 
-            // Exit the program
-            System.exit(1);
+            } else if (selection == 4) {
 
-        } else if (selection == 1) {
+                String searchForAcronym = userInterface.enterInfoToSearchBy();
+                Acronym acronym = searchByLetters(searchForAcronym);
+            } else if (selection == 5) {
+                System.exit(1);
+            }
+        }
 
-            // Print a list of teams and prompt user input
-            displayTeamsMenuChoice();
 
-        } else if (selection == 2) {
+    }
 
-            // Print list of teams and initiate a trade
-            makeATrade();
+    public void displayAcronymsAndPromptSelection() {
+        userInterface.displayAcronymsList(listOfAcronyms);
+        String selection = userInterface.makeAcronymSelection();
+        int selectionAsInt = parseUserInput(selection);
+        userInterface.displayAcronym(listOfAcronyms.get(selectionAsInt - 1));
+    }
 
-        } else if (selection == 3) {
+    public void addAcronymToList() {
 
-            // Display players from the waiver wire and prompt user to select a player
-            pickUpPlayerFromWaiverWire();
-
-        } else if (selection == 4) {
-
-            // Prompt the user to search for a player
-            searchForPlayer();
-
+        Acronym acronymToAdd = userInterface.promptUserForNewAcronymInformation();
+        listOfAcronyms.add(acronymToAdd);
+        try (FileOutputStream outputStream = new FileOutputStream("junior-developer-quiz-program/resources/acronyms.txt", true);
+             PrintWriter printWriter = new PrintWriter(outputStream)) {
+                printWriter.println(acronymToAdd.getAcronymLetters() + "|" + acronymToAdd.getAcronymStandsFor() + "|" + acronymToAdd.getDescription());
+        } catch (IOException e) {
+            System.out.println("Could not write to acronyms.txt");
         }
     }
 
-    // Display team summaries to user
-    public void displayTeamsMenuChoice() {
 
-        // Print the list of teams
-        userInterface.displayTeams(listOfTeams);
+    public void isUserInputQ(String userInput) {
+        if (userInput.equalsIgnoreCase("Q") || userInput.equalsIgnoreCase("quit")) {
+        }
+    }
 
-        // Prompt the user to select a team by number
-        String selection = userInterface.makeTeamSelection();
+    public int parseUserInput(String userInput) {
 
-        // Check if the user input is "Q" (and quit) or can be parsed to return integer
-        int teamSelectedInt = checkIfSelectionIsQOrInt(selection);
+        // Set integer to -1, as this will never occur as a valid option and will trigger further validity checks elsewhere
+        int inputAsInteger = -1;
 
-        // Check that the returned integer corresponds to the number of team options available
-        if (teamSelectedInt > 0 && teamSelectedInt <= listOfTeams.size()) {
-
-            // Establish the team selected by using the input integer to determine the team picked
-            Team teamSelected = listOfTeams.get(teamSelectedInt - 1);
-
-            // Call a method to print the team roster and prompt the user to select a player
-            Player validPlayer = printPlayerListAndPromptSelection(teamSelected);
-
-            // Display the player's info, including stats
-            userInterface.displayPlayerStats(validPlayer);
-
-            // Prompt the user as to whether or not they wish to waive the player
-            String yOrN = userInterface.promptToWaivePlayer();
-
-            // If the user selects yes for waiving
-            if (yOrN.equalsIgnoreCase("y") || yOrN.equalsIgnoreCase("yes")) {
-
-                // Initialize a player list and add the player to waive
-                List<Player> playerToWaive = new ArrayList<>();
-                playerToWaive.add(validPlayer);
-
-                // log waived player
-                transactionLogger.logWaivedPlayer(playerToWaive);
-
-                // Remove the player from their current team
-                teamSelected.removePlayerOrPLayersFromTeam(playerToWaive);
-
-                // Add the player to the waiver wire and inform the user of a successful transaction
-                waiverWire.addPlayerOrPlayersToTeam(playerToWaive);
-                userInterface.transactionCompleted();
-
-                // Return to the main menu
-                mainMenuMethod();
-
-                // If the user selects no, return to the main menu without making a trade
-            } else if (yOrN.equalsIgnoreCase("n") || yOrN.equalsIgnoreCase("no")){
-
-                mainMenuMethod();
-
-            } else {        // Otherwise, inform the user of an invalid input and return to the main menu
-
-                userInterface.invalidSelection();
-                mainMenuMethod();
-
-            }
-
-        } else {            // If the input is an integer outside the range of team options
-
-            // Inform the user of an invalid selection and return to main menu
+        try {
+            inputAsInteger = Integer.parseInt(userInput);
+        } catch (NumberFormatException e) {
+            // Inform the user of an invalid entry and return to the main menu in case of exception
             userInterface.invalidSelection();
-            mainMenuMethod();
-
         }
 
-        mainMenuMethod();
+        // Otherwise, return the integer
+        return inputAsInteger;
+    }
 
+    public Acronym searchByLetters(String acronymLetters) {
+        return null;
     }
 }

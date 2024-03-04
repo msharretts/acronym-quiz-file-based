@@ -1,5 +1,6 @@
 package main.java;
 
+import java.sql.SQLOutput;
 import java.util.List;
 import java.util.Scanner;
 
@@ -19,63 +20,6 @@ public class UserInterface {
         System.out.println();
     }
 
-    // Print a list of acronyms
-    public void displayAcronyms(List<Acronym> acronymList) {
-        System.out.println();
-
-        // Cycle through each team, printing with a counter number
-        int counter = 1;
-        for (Acronym acronym : acronymList) {
-            System.out.println(counter + ") " + acronym.toString());
-            counter++;
-        }
-    }
-
-    // Print the players on a given team
-    public void displayTeamPlayerList(Team currentTeam) {
-        System.out.println(currentTeam.getTeamLocationAndName());
-        System.out.println("\t " + " Player " + " Position " + " Salary ");
-        System.out.println();
-
-        // List players on roster ordered by jersey number
-        List<Player> teamRoster = currentTeam.getTeamRoster();
-
-        // Cycle through each player, printing on separate lines
-        for (Player player : teamRoster) {
-            System.out.println(player.toString());
-        }
-    }
-
-    // Print an individual player's information
-    public void displayPlayerStats(Player player) {
-        System.out.println();
-
-        // Display ##) Player Name, Player position, salary
-        System.out.println(player.toString());
-
-        // Display stats based on position
-        System.out.println(player.getStat1());
-        System.out.println(player.getStat2());
-
-    }
-
-    // Display player info including team
-    public void displayPlayerWithTeam (Player player) {
-        System.out.println();
-        System.out.print(player.getPlayerTeamName());
-        displayPlayer(player);
-    }
-
-    // Display player info without stats included
-    public void displayAcronym(Acronym acronym){
-        System.out.println();
-
-        // Display ##) Player Name, Player position, salary
-        System.out.println(acronym.getJerseyNumber() + ") " +
-                player.getFirstName() + " " + player.getLastName() +
-                " $" + player.getSalaryAmount());
-    }
-
     // Prompt the user to make a selection and return the selection as an integer
     public int mainMenuSelection() {
         System.out.print("Make a selection: ");
@@ -92,7 +36,24 @@ public class UserInterface {
         return Integer.parseInt(selection);
     }
 
-    // Prompt user to select a team and return input
+    // Print a list of acronyms
+    public void displayAcronymsList(List<Acronym> acronymList) {
+        System.out.println();
+
+        // Cycle through each team, printing with a counter number
+        int counter = 1;
+        for (Acronym acronym : acronymList) {
+            System.out.println(counter + ") " + acronym.getAcronymLetters());
+            counter++;
+        }
+    }
+
+    public void displayAcronym(Acronym acronym) {
+        System.out.println();
+        System.out.println(acronym.toString());
+    }
+
+    // Prompt user to select an acronym and return input
     public String makeAcronymSelection() {
         System.out.println();
         System.out.print(" Select an acronym by entering a number or (Q) for quit: ");
@@ -125,4 +86,26 @@ public class UserInterface {
         return userInput.nextLine();
     }
 
+    public Acronym promptUserForNewAcronymInformation() {
+        System.out.println();
+        System.out.println("Please enter acronym letters: ");
+        String letters = userInput.nextLine().toUpperCase();
+
+        System.out.println("Please enter the words represented by the letters: ");
+        String words = userInput.nextLine();
+
+        String newWords = "";
+        String[] letterMeanings = words.split("\\ ");
+        for (String word : letterMeanings) {
+            word = word.substring(0,1).toUpperCase() + word.substring(1);
+            newWords = newWords + word + " ";
+        }
+
+        System.out.println("Please enter a short description of the acronym: ");
+        String description = userInput.nextLine();
+
+        Acronym acronyn = new Acronym(letters, newWords.trim(), description);
+        System.out.println(acronyn.toString());
+        return acronyn;
+    }
 }

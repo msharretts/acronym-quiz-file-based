@@ -1,0 +1,12 @@
+AWS|Amazon Web Services|Provides on-demand cloud computing platforms and APIs to individuals, companies, and governments, on a metered, pay-as-you-go basis.
+SQL|Structured Query Language|Language used for making queries to databases.
+API|Application Program Interface|Code that allows one program to interact with another.
+JDBC|Java Database Connectivity|Java database connectivity is the JavaSoft specification of a standard application programming interface (API) that allows Java programs to access database management systems.
+PIE|Polymorphism, Inheritance, Encapsulation|These are the three main principles of object-oriented programming.
+APIE|Abstraction, Polymorphism, Inheritance, Encapsulation|These are the four main principles of object-oriented programming.
+FIFO|First In, First Out|First in, first out describes a method of managing items in storage, where oldest items are used first.
+LIFO|Last In, First Out|Last in, first out describes a method of managing items in storage, where the most recent items are dealt with first.
+JSON|JavaScript Object Notation|A data interchange format that is both human and machine-readable. Is independent of any programming language and is a common API output in a wide variety of applications.
+HTTP|Hypertext Transfer Protocol|Foundation of the Web. HTTP is an application layer protocol designed to transfer information between networked devices.
+GUI|Graphical User Interface|The common method of interacting with a computing device that enables any image to be displayed on screen.
+OOP|Object Oriented Programming|Java is an object oriented programming language.CRUD|Create Retreive Update Delete|These are the four main actions performed on databases.
