@@ -10,3 +10,5 @@ JSON|JavaScript Object Notation|A data interchange format that is both human and
 HTTP|Hypertext Transfer Protocol|Foundation of the Web. HTTP is an application layer protocol designed to transfer information between networked devices.
 GUI|Graphical User Interface|The common method of interacting with a computing device that enables any image to be displayed on screen.
 OOP|Object Oriented Programming|Java is an object oriented programming language.CRUD|Create Retreive Update Delete|These are the four main actions performed on databases.
+CLI|Command Line Interface|A text based way of interacting with file systems and directories.
+SUT|System Under Test|This acronym is used in unit testing of java code.

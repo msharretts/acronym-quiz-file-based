@@ -2,7 +2,9 @@ package main.java;
 
 import java.sql.SQLOutput;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
+import java.util.TreeMap;
 
 public class UserInterface {
 
@@ -16,7 +18,7 @@ public class UserInterface {
         System.out.println("(2) Add New Acronym");
         System.out.println("(3) Quiz Program");
         System.out.println("(4) Search for Acronym");
-        System.out.println("(4) Exit");
+        System.out.println("(5) Exit");
         System.out.println();
     }
 
@@ -37,14 +39,22 @@ public class UserInterface {
     }
 
     // Print a list of acronyms
-    public void displayAcronymsList(List<Acronym> acronymList) {
+    public void displayAcronymsList(TreeMap<String, Acronym> acronymList) {
         System.out.println();
 
         // Cycle through each team, printing with a counter number
         int counter = 1;
-        for (Acronym acronym : acronymList) {
-            System.out.println(counter + ") " + acronym.getAcronymLetters());
-            counter++;
+        for (Map.Entry<String, Acronym> acronymEntry : acronymList.entrySet()) {
+            if (counter < 10) {
+                System.out.println(counter + ")  " + acronymEntry.getKey());
+                acronymEntry.getValue().setAcronymListNumber(counter);
+                counter++;
+            } else {
+                System.out.println(counter + ") " + acronymEntry.getKey());
+                acronymEntry.getValue().setAcronymListNumber(counter);
+                counter++;
+            }
+
         }
     }
 
@@ -56,13 +66,17 @@ public class UserInterface {
     // Prompt user to select an acronym and return input
     public String makeAcronymSelection() {
         System.out.println();
-        System.out.print(" Select an acronym by entering a number or (Q) for quit: ");
+        System.out.print("Select an acronym by number or (Q) to quit: ");
         return userInput.nextLine();
     }
 
     // Inform the user if their input does not match the requested criteria
     public void invalidSelection() {
-        System.out.println("Invalid selection, returning to main menu.");
+        System.out.println("Invalid selection.");
+    }
+
+    public void acronymAlreadyExistsInList(Acronym acronym) {
+        System.out.println("Acronym already exists.");
     }
 
     // Prompt the user as to whether or not they wish to select additional players after initial player selection
@@ -105,7 +119,6 @@ public class UserInterface {
         String description = userInput.nextLine();
 
         Acronym acronyn = new Acronym(letters, newWords.trim(), description);
-        System.out.println(acronyn.toString());
         return acronyn;
     }
 }

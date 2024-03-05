@@ -10,7 +10,7 @@ public class AcronymBuilder {
     private String description;
 
 
-    public List<Acronym> acronymList = new ArrayList<>();
+    public TreeMap<String, Acronym> acronymList = new TreeMap<>();
 
     public AcronymBuilder() {
 
@@ -21,6 +21,7 @@ public class AcronymBuilder {
         try (Scanner fileReader = new Scanner(acronymFile)) {
             fileReader.nextLine();
             while (fileReader.hasNextLine()) {
+                int counter = 1;
                 String line = fileReader.nextLine();
 
                 // Create a string array for each acronym
@@ -29,8 +30,9 @@ public class AcronymBuilder {
                 acronymStandsFor = lineParts[1];
                 description = lineParts[2];
 
-                Acronym acronymToAdd = new Acronym(acronymLetters, acronymStandsFor, description);
-                acronymList.add(acronymToAdd);
+                Acronym acronymToAdd = new Acronym(acronymLetters, acronymStandsFor, description, counter);
+                acronymList.put(acronymToAdd.getAcronymLetters(),acronymToAdd);
+                counter++;
             }
 
         } catch (FileNotFoundException e) {
@@ -40,7 +42,7 @@ public class AcronymBuilder {
 
     }
 
-    public List<Acronym> getAcronymList() {
+    public TreeMap<String, Acronym> getAcronymList() {
         return acronymList;
     }
 }
