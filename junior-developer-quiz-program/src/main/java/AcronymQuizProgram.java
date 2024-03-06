@@ -94,9 +94,11 @@ public class AcronymQuizProgram {
 
     public void quizProgram() {
         int listNumberOfRandomAcronym = RandomGenerator.getRandom(1, listOfAcronyms.size() + 1);
-        if (listNumberOfRandomAcronym != null && listNumberOfRandomAcronym > 0 && listNumberOfRandomAcronym <listOfAcronyms.size()){
+        if (listNumberOfRandomAcronym > 0 && listNumberOfRandomAcronym <listOfAcronyms.size()){
             Acronym acronymQuizSelection = selectAcronymByListNumber(listNumberOfRandomAcronym);
-            userInterface.displayAcronym(acronymQuizSelection);
+            if (acronymQuizSelection != null) {
+                userInterface.displayAcronym(acronymQuizSelection);
+            }
         }
     }
 
