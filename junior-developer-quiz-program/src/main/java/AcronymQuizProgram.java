@@ -101,7 +101,7 @@ public class AcronymQuizProgram {
                 if (acronymQuizSelection != null) {
                     String acronymMeaning = userInterface.printAcronymLetters(acronymQuizSelection.getAcronymLetters());
                     if (acronymMeaning.toLowerCase().equals(acronymQuizSelection.getAcronymStandsFor().toLowerCase())) {
-                        userInterface.congratulateUser();
+                        userInterface.congratulateUser(acronymQuizSelection);
                     } else {
                         userInterface.shameUser(acronymQuizSelection);
                     }

@@ -1,14 +1,51 @@
 AWS|Amazon Web Services|Provides on-demand cloud computing platforms and APIs to individuals, companies, and governments, on a metered, pay-as-you-go basis.
-SQL|Structured Query Language|Language used for making queries to databases.
-API|Application Program Interface|Code that allows one program to interact with another.
-JDBC|Java Database Connectivity|Java database connectivity is the JavaSoft specification of a standard application programming interface (API) that allows Java programs to access database management systems.
+SQL|Structured Query Language|Language used to interact with relational databases.
+API|Application Programming Interface|Definition of how to use or interact with a program.
+JDBC|Java Database Connectivity|The API that allows Java programs to access database management systems.
 PIE|Polymorphism, Inheritance, Encapsulation|These are the three main principles of object-oriented programming.
 APIE|Abstraction, Polymorphism, Inheritance, Encapsulation|These are the four main principles of object-oriented programming.
-FIFO|First In, First Out|First in, first out describes a method of managing items in storage, where oldest items are used first.
-LIFO|Last In, First Out|Last in, first out describes a method of managing items in storage, where the most recent items are dealt with first.
+FIFO|First In, First Out|First in, first out describes a method of managing items in storage, where oldest items are used first. Example, a stack.
+LIFO|Last In, First Out|Last in, first out describes a method of managing items in storage, where the most recent items are dealt with first. Example, queue.
 JSON|JavaScript Object Notation|A data interchange format that is both human and machine-readable. Is independent of any programming language and is a common API output in a wide variety of applications.
 HTTP|Hypertext Transfer Protocol|Foundation of the Web. HTTP is an application layer protocol designed to transfer information between networked devices.
 GUI|Graphical User Interface|The common method of interacting with a computing device that enables any image to be displayed on screen.
-OOP|Object Oriented Programming|Java is an object oriented programming language.CRUD|Create Retreive Update Delete|These are the four main actions performed on databases.
-CLI|Command Line Interface|A text based way of interacting with file systems and directories.
-SUT|System Under Test|This acronym is used in unit testing of java code.
+OOP|Object Oriented Programming|Programming paradigm that focuses on objects where an object is a bundle of state and behavior, AKA properties and methods.
+CRUD|Create Retrieve Update Delete|These are the four main actions performed on data.
+CLI|Command Line Interface|A text based way of interacting with a program.
+SUT|System Under Test|The subject of what is being tested in an automated testing context.
+HTML|Hypertext Markup Language|Declarative way of describing a document for a web browser to render.
+RESTful|Representational State Transfer|Generally applied to an API to describe whether it adheres to an architecture described by Roy Fielding in his 1999 dissertation.
+CSS|Cascading Style Sheets|A language to describe how to layout and design a graphical user interface built with HTML.
+XML|Extensible Markup Language|Similar to HTML but tags are customizable. Less widely used presently.
+IANA|Internet Assigned Numbers Authority|Global coordination of DNS root IP addressing and other internet protocol resources.
+ICANN|Internet Corporation for Assigned Names and Numbers|Governing body of all things internet.
+DNS|Domain Name System|System by which we resolve human-readable host names into machine-readable IP addresses.
+FTP|File Transfer Protocol|A standard network protocol used for the transfer of files from one host to another over a TCP-based network, such as the Internet.
+SMTP|Simple Mail Transport Protocol|Protocol through which email works.
+URL|Uniform Resource Locator|Describes the location of a resource. Often contains a protocol host/computer and a path or route once host is reached.
+IP|Internet Protocol|A protocol, or set of rules, for routing and addressing packets of data so that they can travel across networks and arrive at the correct destination.
+TLD|Top Level Domain|.COM, .ORG
+PK|Primary Key|Constraint in a relational database, uniquely identifies a row in a table.
+FK|Foreign Key|Constraint in a relational database. Is used to relate to a row(s) in another table.
+UQ|Unique|Constraint in relational database.
+DDL|Data Definition Language|A subset of SQL, used to describe database schema: tables, constraints, etc.
+DQL|Data Query Language|A subset of SQL, focusing on select statements to read data.
+DML|Data Manipulation Language|A subset of SQL, focusing on manipulating data, UPDATE, INSERT, DELETE.
+DCL|Data Control Lanugage|A subset of SQL, focused on controlling access to functions of a database.
+DBMS|Database Management System|Software to manage and or work with a relational database.
+UI|User Interface|The user-facing portion of programming.
+JVM|Java Virtual Machine|The portion of Java that is responsible for translating the byte code into machine code.
+JRE|Java Runtime Environment|Includes the JVM and other programs needed to run a Java application on your machine.
+JDK|Java Development Kit|Includes the JRE and also additional tools in order to build your own Java program as a developer.
+IDE|Integreted Development Environment|Software that includes features that are useful for developing software. IntelliJ
+PWD|Print Working Directory|Shell command to print the directory contents of current directory.
+CD|Change Directory|Shell command to move to a different directory.
+APFS|Apple File System|Apple's newest file system for solid state drives and flash memory.
+NTFS|New Technology File System|Windows file system
+GUI|Graphical User Interface|User interface that utilizes graphic components to interact with programs.
+HDMI|High Definition Multimedia Interface|Transmits audio and visual data in high definition.
+DTO|Data Transfer Object|A simple object that only holds data and is used to pass data between client and server.
+JWT|JSON Web Token|A JSON object made up of 3 parts, a header, a payload, and a signature. Used to authorize user access.
+UX|User Experience|The study of trying to understand and optimize a user's interaction with a product.
+HATEOAS|Hypermedia As The Engine Of Application State|A facet of RESTful architecture. A way to describe related resources to the current resource by using hyperlinks.
+TCP|Transmission Control Protocol|A communications standard for delivering data and messages through networks.

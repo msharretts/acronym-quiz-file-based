@@ -134,9 +134,10 @@ public class UserInterface {
         return words;
     }
 
-    public void congratulateUser() {
+    public void congratulateUser(Acronym acronym) {
         System.out.println();
         System.out.println("That's correct! Nice work.");
+        displayAcronym(acronym);
     }
 
     public void shameUser(Acronym acronym) {
