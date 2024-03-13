@@ -63,6 +63,13 @@ public class UserInterface {
         System.out.println(acronym.toString());
     }
 
+    public String printAcronymLetters(String acronymLetters) {
+        System.out.println();
+        System.out.println(acronymLetters);
+        String meaning = promptForAcronymMeaning();
+        return meaning;
+    }
+
     // Prompt user to select an acronym and return input
     public String makeAcronymSelection() {
         System.out.println();
@@ -105,8 +112,7 @@ public class UserInterface {
         System.out.println("Please enter acronym letters: ");
         String letters = userInput.nextLine().toUpperCase();
 
-        System.out.println("Please enter the words represented by the letters: ");
-        String words = userInput.nextLine();
+        String words = promptForAcronymMeaning();
 
         String newWords = "";
         String[] letterMeanings = words.split("\\ ");
@@ -120,5 +126,22 @@ public class UserInterface {
 
         Acronym acronyn = new Acronym(letters, newWords.trim(), description);
         return acronyn;
+    }
+
+    public String promptForAcronymMeaning () {
+        System.out.println("Please enter the words represented by the letters: ");
+        String words = userInput.nextLine();
+        return words;
+    }
+
+    public void congratulateUser() {
+        System.out.println();
+        System.out.println("That's correct! Nice work.");
+    }
+
+    public void shameUser(Acronym acronym) {
+        System.out.println();
+        System.out.println("Shame. Shame. Shame.");
+        displayAcronym(acronym);
     }
 }

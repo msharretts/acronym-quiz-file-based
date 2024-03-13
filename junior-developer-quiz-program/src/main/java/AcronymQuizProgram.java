@@ -93,13 +93,26 @@ public class AcronymQuizProgram {
     }
 
     public void quizProgram() {
-        int listNumberOfRandomAcronym = RandomGenerator.getRandom(1, listOfAcronyms.size() + 1);
-        if (listNumberOfRandomAcronym > 0 && listNumberOfRandomAcronym <listOfAcronyms.size()){
-            Acronym acronymQuizSelection = selectAcronymByListNumber(listNumberOfRandomAcronym);
-            if (acronymQuizSelection != null) {
-                userInterface.displayAcronym(acronymQuizSelection);
+        boolean continueProgram = true;
+        while (continueProgram) {
+            int listNumberOfRandomAcronym = RandomGenerator.getRandom(1, listOfAcronyms.size());
+            if (listNumberOfRandomAcronym > 0 && listNumberOfRandomAcronym <=listOfAcronyms.size()){
+                Acronym acronymQuizSelection = selectAcronymByListNumber(listNumberOfRandomAcronym);
+                if (acronymQuizSelection != null) {
+                    String acronymMeaning = userInterface.printAcronymLetters(acronymQuizSelection.getAcronymLetters());
+                    if (acronymMeaning.toLowerCase().equals(acronymQuizSelection.getAcronymStandsFor().toLowerCase())) {
+                        userInterface.congratulateUser();
+                    } else {
+                        userInterface.shameUser(acronymQuizSelection);
+                    }
+                    String yOrN = userInterface.selectAnotherAcronym();
+                    if (yOrN.toLowerCase().equals("n") || yOrN.toLowerCase().equals("no")) {
+                        continueProgram = false;
+                    }
+                }
             }
         }
+
     }
 
     public void searchForAndDisplayAcronym() {

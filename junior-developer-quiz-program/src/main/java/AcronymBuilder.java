@@ -20,8 +20,9 @@ public class AcronymBuilder {
         // Read through each line of the file
         try (Scanner fileReader = new Scanner(acronymFile)) {
             fileReader.nextLine();
+            int counter = 1;
             while (fileReader.hasNextLine()) {
-                int counter = 1;
+
                 String line = fileReader.nextLine();
 
                 // Create a string array for each acronym
