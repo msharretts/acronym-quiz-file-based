@@ -48,4 +48,6 @@ DTO|Data Transfer Object|A simple object that only holds data and is used to pas
 JWT|JSON Web Token|A JSON object made up of 3 parts, a header, a payload, and a signature. Used to authorize user access.
 UX|User Experience|The study of trying to understand and optimize a user's interaction with a product.
 HATEOAS|Hypermedia As The Engine Of Application State|A facet of RESTful architecture. A way to describe related resources to the current resource by using hyperlinks.
-TCP|Transmission Control Protocol|A communications standard for delivering data and messages through networks.
+TCP|Transmission Control Protocol|A communications standard for delivering data and messages through networks.MDN|Mozilla Development Network|MDN is a documentation repository and learning resource for web developers.
+MDN|Mozilla Developer Network|MDN is a documentation repository and learning resource for web developers.
+ES|EcmaScript|EcmaScript is a standard for scripting languages, including JavaScript, JScript, and ActionScript.
