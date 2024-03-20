@@ -51,3 +51,4 @@ HATEOAS|Hypermedia As The Engine Of Application State|A facet of RESTful archite
 TCP|Transmission Control Protocol|A communications standard for delivering data and messages through networks.MDN|Mozilla Development Network|MDN is a documentation repository and learning resource for web developers.
 MDN|Mozilla Developer Network|MDN is a documentation repository and learning resource for web developers.
 ES|EcmaScript|EcmaScript is a standard for scripting languages, including JavaScript, JScript, and ActionScript.
+DOM|Document Object Model|The programming interface for HTML documents that are loaded into the browser.
