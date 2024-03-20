@@ -52,3 +52,4 @@ TCP|Transmission Control Protocol|A communications standard for delivering data 
 MDN|Mozilla Developer Network|MDN is a documentation repository and learning resource for web developers.
 ES|EcmaScript|EcmaScript is a standard for scripting languages, including JavaScript, JScript, and ActionScript.
 DOM|Document Object Model|The programming interface for HTML documents that are loaded into the browser.
+XSS|Cross Site Scripting|XSS is an attack in which an attacker injects malicious executable scripts into the code of a trusted application or website. We avoid .innerHTML w/ JavaScript & DOM to avoid these attacks.
