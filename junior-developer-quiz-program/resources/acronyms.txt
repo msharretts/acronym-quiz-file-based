@@ -53,3 +53,6 @@ MDN|Mozilla Developer Network|MDN is a documentation repository and learning res
 ES|EcmaScript|EcmaScript is a standard for scripting languages, including JavaScript, JScript, and ActionScript.
 DOM|Document Object Model|The programming interface for HTML documents that are loaded into the browser.
 XSS|Cross Site Scripting|XSS is an attack in which an attacker injects malicious executable scripts into the code of a trusted application or website. We avoid .innerHTML w/ JavaScript & DOM to avoid these attacks.
+DLL|Dynamic Link Library|A library that contains functions and code that can be used by more than one program at a time.
+CLR|Common Language Runtime|.NET's runtime environment; equivalent to the JVM for Java.
+SPA|Single Page Application|A web application that interacts with the user by dynamically rewriting the current web page with new data.
