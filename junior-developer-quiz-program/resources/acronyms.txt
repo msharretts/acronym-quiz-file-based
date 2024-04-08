@@ -56,3 +56,4 @@ XSS|Cross Site Scripting|XSS is an attack in which an attacker injects malicious
 DLL|Dynamic Link Library|A library that contains functions and code that can be used by more than one program at a time.
 CLR|Common Language Runtime|.NET's runtime environment; equivalent to the JVM for Java.
 SPA|Single Page Application|A web application that interacts with the user by dynamically rewriting the current web page with new data.
+POM|Project Object Model|An XML file that contains information about the project and configuration details used to build the project.
